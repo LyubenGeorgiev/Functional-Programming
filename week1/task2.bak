@@ -1,7 +1,10 @@
 #lang racket
 
 (define (leap-year-one-line? x)
-  (or (zero? (remainder x 400)) (and (zero? (remainder x 4)) (not (zero? (remainder x 100)))))
+    (if (or (zero? (remainder x 400)) (and (zero? (remainder x 4)) (not (zero? (remainder x 100)))))
+        #t
+        #f
+      )
   )
 
 (define (is-leap-year-guards? x)

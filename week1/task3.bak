@@ -1,13 +1,10 @@
 #lang racket
 
 (define (can-carry? num max weight)
-  (cond
-    [(< num 0) (error "The number of products was negative")]
-    [(< max 0) (error "John's hosting capacity was negative")]
-    [(< weight 0) (error "The weight of a product was negative")]
-    [(> (* num weight) max) #f]
-    [else #t]
-    )
+    (cond
+        [(> (* num weight) max) #f]
+        [else #t]
+      )
   )
 
 (equal? (can-carry? 5 15 3) #t)
