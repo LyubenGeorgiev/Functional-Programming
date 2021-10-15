@@ -1,16 +1,8 @@
 #lang racket
 
+(require math/number-theory)
+
 (define (sum-prime-divs number)
-  (define (prime? n)
-    (define (f num curDiv)
-      (cond
-        [(< num (* curDiv curDiv)) #t]
-        [(zero? (remainder num curDiv)) #f]
-        [else (f num (add1 curDiv))]
-        )
-      )
-    (f n 2)
-    )
   (define (helper curNum)
     (cond
       [(> curNum number) 0]

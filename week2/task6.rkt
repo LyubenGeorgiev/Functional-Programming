@@ -1,15 +1,6 @@
 #lang racket
 
-(define (prime? n)
-  (define (f curDiv)
-    (cond
-      [(> (* curDiv curDiv) n) #t]
-      [(zero? (remainder n curDiv)) #f]
-      [else (f (add1 curDiv))]
-      )
-    )
-  (f 2)
-  )
+(require math/number-theory)
 
 (define (sum-special-primes maxCount contains)
   (define (contains-helper num)
