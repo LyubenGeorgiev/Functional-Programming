@@ -1,0 +1,9 @@
+#lang racket
+
+(define (repeater str)
+  (λ (count glue) ())
+  )
+
+
+(equal? ((repeater "I love Racket") 3 " ") "I love Racket I love Racket I love Racket")
+(equal? ((repeater "Quack") 5 "!") "Quack!Quack!Quack!Quack!Quack")
