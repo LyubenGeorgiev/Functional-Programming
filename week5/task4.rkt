@@ -6,7 +6,7 @@
 
 (define (rev-lin-rec xs)
   (cond
-    [(null? xs) (error "Expected a list")]
+    [(null? xs) '()]
     [(= (length xs) 1) (car xs)]
     [else (+ (* (rev-lin-rec (cdr xs)) 10) (car xs))]
     )

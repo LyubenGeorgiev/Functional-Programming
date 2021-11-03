@@ -3,7 +3,7 @@
 
 (define (insert-at x idx xs)
   (cond
-    [(null? xs) (cons x '())]
+    [(null? xs) (list x)]
     [(zero? idx) (cons x xs)]
     [else (cons (car xs) (insert-at x (sub1 idx) (cdr xs)))]
     )

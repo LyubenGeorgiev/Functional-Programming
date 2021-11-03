@@ -6,7 +6,10 @@
   )
 
 (define (concat-rec xs ys)
-  (foldr cons ys xs)
+  (cond
+    [(null? xs) ys]
+    [else (cons (car xs) (concat-rec (cdr xs) ys))]
+    )
   )
 
 ; using a predefined procedure
