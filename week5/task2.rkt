@@ -36,23 +36,7 @@
 ;(equal? (longest-ascending-not-consecutive-sub '(1 5 2 4 6 8 3 4 1)) '(1 2 4 6 8))
 
 (define (longest-ascending-sub xs)
-  (define (helper body max-len cur-len best-list cur-list)
-    (cond
-      [(null? body) (cond
-              [(< max-len cur-len) cur-list]
-              [else best-list]
-              )]
-      [(>= (car body) (car cur-list)) (helper (cdr body) max-len (add1 cur-len) best-list (cons (car body) cur-list))]
-      [else (cond
-              [(< max-len cur-len) (helper (cdr body) cur-len 1 cur-list (list (car body)))]
-              [else (helper (cdr body) max-len 1 best-list (list (car body)))]
-              )]
-      )
-    )
-  (cond
-    [(null? xs) '()]
-    [else (reverse (helper (cdr xs) 1 1 (list (car xs)) (list (car xs))))]
-    )
+  (reverse (argmax length (foldl (λ (cur res) (if (< cur (caar res)) (cons (list cur) res) (cons (cons cur (car res)) (cdr res)))) (list (list (car xs))) (cdr xs))))
   )
 
 
