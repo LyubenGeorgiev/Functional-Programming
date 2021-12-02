@@ -8,4 +8,4 @@ main = do
     print $ perfect 33550336 == True
 
 perfect :: Int -> Bool
-perfect x = x == (sum (filter (\z -> (mod x z) == 0) [1..(x-1)]))
+perfect x = x == sum (filter (\z -> mod x z == 0) [1..x-1])

@@ -18,11 +18,7 @@ isPrimeG :: Int -> Bool
 isPrimeG x = x /= 1 && helper 2
  where
      helper :: Int -> Bool
-     helper current
-      | current >= x = True
-      | (mod x current) == 0 = False
-      | otherwise = helper (current + 1)
-
+     helper current = current >= x || mod x current /= 0 && helper (current + 1)
 
 isPrimeLC :: Int -> Bool
-isPrimeLC x = x /= 1 && null (filter (\z -> (mod x z) == 0) [2..(x-1)])
+isPrimeLC x = x /= 1 && null (filter (\z -> mod x z == 0) [2..x-1])
