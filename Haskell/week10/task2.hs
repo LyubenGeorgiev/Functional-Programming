@@ -1,3 +1,5 @@
+import Data.Char
+
 main :: IO()
 main = do
     print $ sumSpecialPrimes 5 2 == 392
@@ -11,4 +13,4 @@ isPrime :: Int -> Bool
 isPrime k = k /= 1 && null [ x | x <- [2..k - 1], mod k x == 0]
 
 contains :: Int -> Int -> Bool
-contains n d = elem (head $ show d) $ show n
+contains n d = elem (intToDigit d) (show n)

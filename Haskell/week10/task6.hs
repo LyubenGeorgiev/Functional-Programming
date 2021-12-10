@@ -7,10 +7,10 @@ main = do
     print $ sumUnique [[1,2,3],[4,5,6],[7,8,9]] == 45
 
 sumUnique :: [[Int]] -> Int
-sumUnique = sum . (map (sum . unique))
+sumUnique = sum . map (sum . unique)
 
 unique :: [Int] -> [Int]
 unique [] = []
 unique (x:xs)
- | elem x xs = unique (filter ((/=) x) xs)
- | otherwise = x:unique (filter ((/=) x) xs)
+ | elem x xs = unique $ filter (/= x) xs
+ | otherwise = x : (unique $ filter (/= x) xs)
