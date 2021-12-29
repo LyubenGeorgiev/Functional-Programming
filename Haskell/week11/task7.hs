@@ -31,12 +31,12 @@ isSorted [] = True
 isSorted xs = isSortedAsc xs || isSortedDesc xs
 
 isSortedAsc :: [Int] -> Bool
+isSortedAsc [_] = True
 isSortedAsc (x:y:xs) = x <= y && isSortedAsc (y:xs)
-isSortedAsc (x:xs) = True
 
 isSortedDesc :: [Int] -> Bool
+isSortedDesc [_] = True
 isSortedDesc (x:y:xs) = x >= y && isSortedDesc (y:xs)
-isSortedDesc (x:xs) = True
 
 isSortedXs :: [Int] -> Bool
 isSortedXs xs = sort xs == xs || (reverse $ sort xs) == xs
