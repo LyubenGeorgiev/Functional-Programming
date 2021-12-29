@@ -17,9 +17,3 @@ main = do
 
 duplicateCount :: [Char] -> Int
 duplicateCount = length . (filter (>1)) . (map length) . group . sort . (map toLower)
-
-notUnique :: [Char] -> [Char]
-notUnique [] = []
-notUnique (x:xs)
- | elem x xs = x:notUnique (filter ((/=) x) xs)
- | otherwise = notUnique xs
