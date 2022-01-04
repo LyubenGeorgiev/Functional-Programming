@@ -5,10 +5,4 @@ main = do
 
 combine :: [(Int, Int)] -> (Int, Int)
 combine [] = error "Nothing to combine"
-combine xs = (combineMin xs, combineMax xs)
-
-combineMin :: [(Int, Int)] -> Int
-combineMin = read . foldl (\ res (x, y) -> res ++ show (min x y)) ""
-
-combineMax :: [(Int, Int)] -> Int
-combineMax = read . foldl (\ res (x, y) -> res ++ show (max x y)) ""
+combine xs = foldl (\ (resL, resR) (x, y) -> (resL*10 + (min x y), resR*10 + (max x y))) (0, 0) xs
